@@ -1,6 +1,33 @@
 # parkingLot
 springboot thymeleaf mybatis redis 
 # Parking_space_sales_system
+2.2.1 User login module
+The user login module is a necessary preparation step before users use this system. Users can log in to their own accounts based on the account information provided to the administrator. The account administrator will enter the user's personal information on the back end, including the name of the account. , phone number, password, email information, etc.
+
+2.2.2 Parking space subscription module
+The parking space subscription module can provide users with parking space browsing and detailed introduction, including parking space type, area, management fees and property rights, etc., to help users choose appropriate parking spaces, which is conducive to the promotion of parking spaces and the user's own purchase of parking spaces. You can easily add the parking space you want to the shopping cart and download the contract to sign and purchase.
+
+2.2.3 Order query module
+The order query module helps users query their orders after purchasing a parking space. Users can query their orders after purchasing a parking space. After querying the order to be paid, the user can pay for the order and complete the purchase of the order.
+
+2.2.4 Status query module
+The status query module means that users can query their certified information in the mini program, including their real name, phone number and ID number, and query their QR code page to complete the parking space lottery operation and purchase and use it as access to the purchased community. certificate.
+
+2.2.5 Information registration module
+Users can register in advance for the parking spaces in the community that they want to snap up in the parking space sales system. The registration module will display the start time and deadline of the registration for the parking spaces, and display the community where the registered parking spaces are located, and display pictures of the registered parking spaces. After ensuring While users can learn the registration information, it also reduces the trouble of users going to the site to reserve parking spaces in person, and provides a more optimized participation process for user registration activities.
+
+2.2.6 User management module
+The user management module is a module for back-end administrators to manage users. Administrators can add, delete, modify and query users' personal information and account information on the back-end, including the management of user lists and user real-name The management of certification, management of owners, and account registration functions are also completed by the administrator.
+
+2.2.7 Parking space management module
+The parking space management module refers to the function that the administrator can modify and view the parking space information in the database on the back end. The administrator can manage the user's parking space information and parking space details in the parking space management module, and directly manage the parking space through the background parking space information. contact the owner.
+
+2.2.8 Business management module
+The business management module refers to the function for administrators to add, delete, and query user order details. Administrators can view order details on the backend, including city, address, parking space number, order date, order number, and selling price. , payment status and other information, the administrator can also screen the orders he wants to query by selecting the order date and order status.
+
+2.2.9 Administrator management module
+The administrator management module refers to the operation of super administrators to add, modify and delete administrator permissions. Super administrators can manage ordinary administrators on the backend, and ordinary administrators can handle all matters on the backend, except for managing administrators. , the super administrator can manage all back-end transactions.
+
 <img width="360" alt="image" src="https://github.com/JJthomps-prog/Parking_space_sales_system/assets/64568803/88a74560-ef43-4568-9a77-3be408043e8d">
 <img width="359" alt="image" src="https://github.com/JJthomps-prog/Parking_space_sales_system/assets/64568803/f4f99abb-ddd7-4bc8-b6ad-fe6f16b446ca">
 <img width="359" alt="image" src="https://github.com/JJthomps-prog/Parking_space_sales_system/assets/64568803/5cacbbdc-b070-4861-80d0-12b198b5f803">
