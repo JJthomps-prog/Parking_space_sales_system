@@ -1,7 +1,7 @@
-# parkingLot
+# Parking Space
 springboot thymeleaf mybatis redis 
 ## Frontend:
-1.User Login 2.Buy ParkingLot 3.Status Check 4.Order Check 5.Profile Information
+1.User Login 2.Buy Parking Space 3.Status Check 4.Order Check 5.Profile Information
 ## Backend:
 1.Administer 2.Manage Parking Lot 3.Manage Order
 # Parking_space_sales_system
