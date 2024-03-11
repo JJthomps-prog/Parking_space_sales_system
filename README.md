@@ -1,7 +1,9 @@
 # parkingLot
 springboot thymeleaf mybatis redis 
-## Frontend:1.User Login 2.Buy ParkingLot 3.Status Check 4.Order Check 5.Profile Information
-## Backend:1.Administer 2.Manage Parking Lot 3.Manage Order
+## Frontend:
+1.User Login 2.Buy ParkingLot 3.Status Check 4.Order Check 5.Profile Information
+## Backend:
+1.Administer 2.Manage Parking Lot 3.Manage Order
 # Parking_space_sales_system
 2.2.1 User login module
 The user login module is a necessary preparation step before users use this system. Users can log in to their own accounts based on the account information provided to the administrator. The account administrator will enter the user's personal information on the back end, including the name of the account. , phone number, password, email information, etc.
