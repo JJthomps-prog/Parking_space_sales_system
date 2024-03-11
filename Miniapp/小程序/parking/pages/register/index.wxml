@@ -1,0 +1,108 @@
+<!--pages/register/index.wxml-->
+<view class="register">
+  <view class="register_list">
+    <view class="left">
+      <image src="../../images/xiaoqu_1.jpg" style="width: 200px; height: 150px; border-radius: 10px; margin: 2px; border: 1px solid wheat;"></image>
+      <view class="text">杭州滨江新城</view>
+    </view>
+    <view class="right">
+      <view class="time">
+        <text style="font-size: 15px; color: white;">开始时间</text>
+        <text style="font-size: 10px; color: blue;">2022.02.17</text>
+        <text style="font-size: 15px; color: white;">截止时间</text>
+        <text style="font-size: 10px; color: blue;">2022.02.17</text>
+        <button bindtap="baoming" style="width: fit-content; word-wrap: break-word; font-size: 10px; margin-top: 5rem;">报名</button>
+      </view>
+    </view>
+  </view>
+  <view class="register_list">
+    <view class="left">
+      <image src="../../images/xiaoqu_1.jpg" style="width: 200px; height: 150px; border-radius: 10px; margin: 2px; border: 1px solid wheat;"></image>
+      <view class="text">杭州滨江新城</view>
+    </view>
+    <view class="right">
+      <view class="time">
+        <text style="font-size: 15px; color: white;">开始时间</text>
+        <text style="font-size: 10px; color: blue;">2022.02.17</text>
+        <text style="font-size: 15px; color: white;">截止时间</text>
+        <text style="font-size: 10px; color: blue;">2022.02.17</text>
+        <button bindtap="baoming" style="width: fit-content; word-wrap: break-word; font-size: 10px; margin-top: 5rem;">报名</button>
+      </view>
+    </view>
+  </view>
+  <view class="register_list">
+    <view class="left">
+      <image src="../../images/xiaoqu_1.jpg" style="width: 200px; height: 150px; border-radius: 10px; margin: 2px; border: 1px solid wheat;"></image>
+      <view class="text">杭州滨江新城</view>
+    </view>
+    <view class="right">
+      <view class="time">
+        <text style="font-size: 15px; color: white;">开始时间</text>
+        <text style="font-size: 10px; color: blue;">2022.02.17</text>
+        <text style="font-size: 15px; color: white;">截止时间</text>
+        <text style="font-size: 10px; color: blue;">2022.02.17</text>
+        <button bindtap="baoming" style="width: fit-content; word-wrap: break-word; font-size: 10px; margin-top: 5rem;">报名</button>
+      </view>
+    </view>
+  </view>
+  <view class="register_list">
+    <view class="left">
+      <image src="../../images/xiaoqu_1.jpg" style="width: 200px; height: 150px; border-radius: 10px; margin: 2px; border: 1px solid wheat;"></image>
+      <view class="text">杭州滨江新城</view>
+    </view>
+    <view class="right">
+      <view class="time">
+        <text style="font-size: 15px; color: white;">开始时间</text>
+        <text style="font-size: 10px; color: blue;">2022.02.17</text>
+        <text style="font-size: 15px; color: white;">截止时间</text>
+        <text style="font-size: 10px; color: blue;">2022.02.17</text>
+        <button bindtap="baoming" style="width: fit-content; word-wrap: break-word; font-size: 10px; margin-top: 5rem;">报名</button>
+      </view>
+    </view>
+  </view>
+  <view class="register_list">
+    <view class="left">
+      <image src="../../images/xiaoqu_1.jpg" style="width: 200px; height: 150px; border-radius: 10px; margin: 2px; border: 1px solid wheat;"></image>
+      <view class="text">杭州滨江新城</view>
+    </view>
+    <view class="right">
+      <view class="time">
+        <text style="font-size: 15px; color: white;">开始时间</text>
+        <text style="font-size: 10px; color: blue;">2022.02.17</text>
+        <text style="font-size: 15px; color: white;">截止时间</text>
+        <text style="font-size: 10px; color: blue;">2022.02.17</text>
+        <button bindtap="baoming" style="width: fit-content; word-wrap: break-word; font-size: 10px; margin-top: 5rem;">报名</button>
+      </view>
+    </view>
+  </view>
+  <view class="register_list">
+    <view class="left">
+      <image src="../../images/xiaoqu_1.jpg" style="width: 200px; height: 150px; border-radius: 10px; margin: 2px; border: 1px solid wheat;"></image>
+      <view class="text">杭州滨江新城</view>
+    </view>
+    <view class="right">
+      <view class="time">
+        <text style="font-size: 15px; color: white;">开始时间</text>
+        <text style="font-size: 10px; color: blue;">2022.02.17</text>
+        <text style="font-size: 15px; color: white;">截止时间</text>
+        <text style="font-size: 10px; color: blue;">2022.02.17</text>
+        <button bindtap="baoming" style="width: fit-content; word-wrap: break-word; font-size: 10px; margin-top: 5rem;">报名</button>
+      </view>
+    </view>
+  </view>
+  <view class="register_list">
+    <view class="left">
+      <image src="../../images/xiaoqu_1.jpg" style="width: 200px; height: 150px; border-radius: 10px; margin: 2px; border: 1px solid wheat;"></image>
+      <view class="text">杭州滨江新城</view>
+    </view>
+    <view class="right">
+      <view class="time">
+        <text style="font-size: 15px; color: white;">开始时间</text>
+        <text style="font-size: 10px; color: blue;">2022.02.17</text>
+        <text style="font-size: 15px; color: white;">截止时间</text>
+        <text style="font-size: 10px; color: blue;">2022.02.17</text>
+        <button bindtap="baoming" style="width: fit-content; word-wrap: break-word; font-size: 10px; margin-top: 5rem;">报名</button>
+      </view>
+    </view>
+  </view>
+</view>

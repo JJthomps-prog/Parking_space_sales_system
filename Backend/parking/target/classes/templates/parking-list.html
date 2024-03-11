@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>后台登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet"  href="./css/font.css">
+    <link rel="stylesheet"  href="./css/xadmin.css">
+    <link rel="shortcut icon"  href="images/logo.php">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+    <script src="./lib/layui/layui.js"  charset="utf-8"></script>
+    <script type="text/javascript"  src="./js/xadmin.js"></script>
+</head>
+<body>
+    <!-- 顶部开始 -->
+    <div class="container">
+        <div class="logo"><a href="./index.html">栓马桩后台管理系统</a></div>
+        <div class="open-nav"><i class="iconfont">&#xe699;</i></div>
+        <ul class="layui-nav right" lay-filter="">
+          <li class="layui-nav-item">
+            <a href="javascript:;" th:text="${#session.getAttribute('admin').admin_name}">admin</a>
+            <dl class="layui-nav-child"> <!-- 二级菜单 -->
+              <dd><a href="">个人信息</a></dd>
+              <dd><a href="">切换帐号</a></dd>
+              <dd><a href="./login.html">退出</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item"><a href="/">前台首页</a></li>
+        </ul>
+    </div>
+    <!-- 顶部结束 -->
+    <!-- 中部开始 -->
+    <div class="wrapper">
+        <!-- 左侧菜单开始 -->
+        <div class="left-nav">
+          <div id="side-nav">
+            <ul id="nav">
+                <li class="list" current>
+                    <a href="./index.html">
+                        <i class="iconfont">&#xe761;</i>
+                        欢迎页面
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe70b;</i>
+                        用户管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="iconfont">
+                            <a href="/getUser">
+                                <i class="iconfont">&#xe6a7;</i>
+                                用户列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/member-realname">
+                                <i class="iconfont">&#xe6a7;</i>
+                                实名管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/owner-list">
+                                <i class="iconfont">&#xe6a7;</i>
+                                业主管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list" >
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6ba;</i>
+                        车位管理
+                        <i class="iconfont nav_right">&#xe6a7;</i>
+                    </a>
+                    <ul class="sub-menu opened">
+                        <li class="current">
+                            <a href="/parkinglist">
+                                <i class="iconfont">&#xe6a7;</i>
+                                车位信息列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/userParking">
+                                <i class="iconfont">&#xe6a7;</i>
+                                用户车位列表
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list" >
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6a2;</i>
+                        业务管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu" style="display:none">
+                        <li>
+                            <a href="/orderList">
+                                <i class="iconfont">&#xe6a7;</i>
+                                订单列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/loanList">
+                                <i class="iconfont">&#xe6a7;</i>
+                                贷款列表
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list" >
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6c7;</i>
+                        管理员管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu" style="display:none">
+                        <li>
+                            <a href="/getAdmin">
+                                <i class="iconfont">&#xe6a7;</i>
+                                管理员列表
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list">
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6a3;</i>
+                        系统统计
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu" style="display:none">
+                        <li>
+                            <a href="/count">
+                                <i class="iconfont">&#xe6a7;</i>
+                                车位统计
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/usercount">
+                                <i class="iconfont">&#xe6a7;</i>
+                                用户统计
+                            </a>
+                        </li>
+                        <li >
+                            <a href="/datalist">
+                                <i class="iconfont">&#xe6a7;</i>
+                                业绩统计
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list" >
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6a3;</i>
+                        系统设置
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu" style="display:none">
+                        <li>
+                            <a href="./banner-list.html">
+                                <i class="iconfont">&#xe6a7;</i>
+                                轮播列表
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 左侧菜单结束 -->
+        <!-- 右侧主体开始 -->
+        <div class="page-content">
+          <div class="content">
+			  <blockquote class="layui-elem-quote" style="color: red;">
+			      查看车位统计信息请点击详细地址
+			  </blockquote>
+            <!-- 右侧内容框架，更改从这里开始 -->
+              <xblock><button class="layui-btn" onclick="parking_add('添加车位信息','parking-add','600','500')"><i class="layui-icon">&#xe608;</i>添加</button><span  class="x-right" style="line-height:40px">共有数据：<span id="parkingIndex" class="x-right" style="line-height:40px" th:text="${#session.getAttribute('parkingIndex')}"></span></span> </xblock>
+            <table class="layui-table">
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            城市
+                        </th>
+                        <th>
+                            详细地址
+                        </th>
+                        <th>
+                            业主手机
+                        </th>
+                        <th>
+                            业主名称
+                        </th>
+                        <th>
+                            数量
+                        </th>
+						<th>管理</th>
+                        <th>
+                            操作
+                        </th>
+                    </tr>
+                <tbody>
+                    <tr th:each="parking :${#session.getAttribute('parking')}">
+                        <td>
+                            [[${parking.id}]]
+                        </td>
+                        <td>
+                                [[${parking.city}]]
+                        </td>
+                        <td >
+                            <u style="cursor:pointer">
+                                <a th:href="@{/countEach(id=${parking.id})}">
+                                [[${parking.address}]]
+                                </a>
+                            </u>
+
+                        </td>
+                        <td >
+                            [[${parking.owner_phone}]]
+                        </td>
+                        <td >
+                            [[${parking.owner_name}]]
+                        </td>
+						<td >
+						    [[${parking.number}]]
+						</td>
+                        <td class="td-status">
+                            <a th:href="@{'/parkinglot?id='+${parking.id}}">
+                            <span class="layui-btn layui-btn-normal layui-btn-mini">
+                                管理
+                            </span>
+                            </a>
+                        </td>
+                        <td class="td-manage">
+                            <a title="编辑" href="javascript:;" onclick="parking_edit('编辑','parking-edit','4','','510',this)"
+                            class="ml-5" style="text-decoration:none">
+                                <i class="layui-icon">&#xe642;</i>
+                            </a>
+                            <a title="删除" href="javascript:;"  onclick="parking_del(this)"
+                               style="text-decoration:none">
+                                <i class="layui-icon">&#xe640;</i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- 右侧内容框架，更改从这里结束 -->
+          </div>
+
+
+        </div>
+        <!-- 右侧主体结束 -->
+    </div>
+
+    <!-- 底部结束 -->
+    <!-- 背景切换开始 -->
+    <div class="bg-changer">
+        <div class="swiper-container changer-list">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="item" src="./images/a.jpg"  alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/b.jpg"  alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/c.jpg"  alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/d.jpg"  alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/e.jpg"  alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/f.jpg"  alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/g.jpg"  alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/h.jpg"  alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/i.jpg"  alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/j.jpg"  alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/k.jpg" alt=""></div>
+                <div class="swiper-slide"><span class="reset">初始化</span></div>
+            </div>
+        </div>
+        <div class="bg-out"></div>
+        <div id="changer-set"><i class="iconfont">&#xe696;</i></div>   
+    </div>
+    <!-- 背景切换结束 -->
+    <!-- 页面动态效果 -->
+    <script>
+         /*用户-添加*/
+        function parking_add(title,url,w,h){
+            x_admin_show(title,url,w,h);
+        }
+        /*用户-查看*/
+        function member_show(title,url,id,w,h){
+            x_admin_show(title,url,w,h);
+        }
+
+        // 用户-编辑
+        function parking_edit (title,url,id,w,h,obj) {
+                $.ajax({
+                    url: "/admin/updateParkingBeam",
+                    type: "GET",
+                    data: {'id': $(obj).parents("tr").children(":first").text()},
+                })
+            x_admin_show(title,url,w,h); 
+        }
+        /*用户-删除*/
+        function parking_del(obj){
+            layer.confirm('确认要删除吗？',function() {
+                $.ajax({
+                        url: "/admin/delParking",
+                        type: "GET",
+                        data: {"value": $(obj).parents("tr").children(":first").text()},
+                            success: function (data) {
+                                if (data == '1') {
+                                    $(obj).parents("tr").remove();
+                                    var x1 = document.getElementById("parkingIndex");
+                                    x1.innerText=x1.innerText-1;
+                                    layer.msg('已删除!', {icon: 1, time: 1000});
+                                } else {
+                                    layer.msg(data, {icon: 2, time: 1000});
+                                }
+                            }
+                        })
+                    }
+                );
+        }
+        </script>
+</body>
+</html>

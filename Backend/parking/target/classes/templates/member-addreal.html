@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>后台登录</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/font.css">
+	<link rel="stylesheet" href="./css/xadmin.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+    <link rel="shortcut icon" href="images/logo.php">
+</head>
+<body>
+    <!-- 中部开始 -->
+    <div class="wrapper">
+        <!-- 右侧主体开始 -->
+        <div class="page-content">
+          <div class="content">
+            <!-- 右侧内容框架，更改从这里开始 -->
+            <form class="layui-form"  method="post" target="nm_iframe">
+
+                <div class="layui-form-item">
+                    <label  class="layui-form-label">
+                        <span class="x-red">*</span>用户ID
+                    </label>
+                    <div class="layui-input-inline">
+                        <input onblur="verifyUserPhone()" type="text" id="id" name="id" required="required" lay-verify="nikename"
+                        autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+				<div class="layui-form-item">
+				    <label  class="layui-form-label">
+				        <span class="x-red">*</span>姓名
+				    </label>
+				    <div class="layui-input-inline">
+				        <input type="rname" id="rname" name="rname" required="required" lay-verify="nikename"
+				        autocomplete="off" class="layui-input">
+				    </div>
+				</div>
+                <div class="layui-form-item">
+                    <label  class="layui-form-label">
+                        <span class="x-red">*</span>身份证
+                    </label>
+                    <div class="layui-input-inline">
+                        <input onblur="verifyUserName()" type="text" id="number" name="id_number" required="required" lay-verify="nikename"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">
+                    </label>
+                    <button  class="layui-btn" lay-filter="add" lay-submit="" onclick="member_add()">
+                        增加
+                    </button>
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
+    <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+    <script>
+        function member_add(){
+            if($("#number").val()==''||$("#rname").val()==''||$("#id").val()==''){
+            }else {
+                var num = $("#number").val()
+                if (num.length != 18) {
+                    layer.msg("身份证格式错误！", {icon: 2, time: 1000});
+                } else {
+                    $.ajax({
+                        url: "/admin/addRealname",
+                        type: "POST",
+                        data: {
+                            "id": $("#id").val(), "rname": $("#rname").val(),
+                            "number": $("#number").val()
+                        },
+                        success: function (data) {
+                            if (data == '') {
+                                layer.msg('添加成功！', {icon: 2, time: 3000});
+                                myrefresh();
+                            } else {
+                                layer.msg(data, {icon: 2, time: 1000});
+                            }
+                        }
+                    })
+
+                }
+            }
+        }
+
+        function verifyUserName(){
+            $.ajax({
+                url: "/admin/VerifyRealIdNumber",
+                type: "POST",
+                data: {
+                    "number": $("#number").val()
+                },
+                success: function (data) {
+                    if(data!='') {
+                        layer.msg(data, {icon: 2, time: 1000});
+                    }
+                }
+            })
+
+        }
+
+        function verifyUserPhone(){
+            $.ajax({
+                url: "/admin/VerifyRealId",
+                type: "POST",
+                data: {
+                    "id": $("#id").val()
+                },
+                success: function (data) {
+                    if(data!='') {
+                        layer.msg(data, {icon: 2, time: 1000});
+                    }
+                }
+            })
+
+        }
+
+        function myrefresh(){
+            window.location.href="/member-realname";
+            window.parent.location.href="/member-realname" ;
+        }
+
+
+	</script>
+</body>
+</html>

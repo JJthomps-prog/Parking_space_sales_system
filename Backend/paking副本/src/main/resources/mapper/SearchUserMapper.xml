@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ykw.parking.mapper.SearchUserMapper">
+
+    <select id="QueryUserByName" resultType="user" parameterType="string">
+        select * from user where name like "%"#{name}"%"
+    </select>
+
+    <select id="QueryUserByPhone" resultType="user" parameterType="string">
+        select * from user where phone_number like "%"#{phone}"%"
+    </select>
+
+    <select id="QueryUserByEmail" resultType="user" parameterType="string">
+        select * from user where email like "%"#{email}"%"
+    </select>
+
+    <select id="QueryUserByNameInt" resultType="int" parameterType="string">
+        select COUNT(*) from user where name like "%"#{name}"%"
+    </select>
+
+    <select id="QueryUserByPhoneInt" resultType="int" parameterType="string">
+        select COUNT(*) from user where phone_number like "%"#{phone}"%"
+    </select>
+
+    <select id="QueryUserByEmailInt" resultType="int" parameterType="string">
+        select COUNT(*) from user where email like "%"#{email}"%"
+    </select>
+
+    <select id="QueryUserByNameAndPhone" parameterType="string" resultType="user">
+        select * from user where name like "%"#{name}"%" and phone_number like "%"#{phone}"%"
+    </select>
+
+    <select id="QueryUserByNameAndEmail" parameterType="string" resultType="user">
+        select * from user where name like "%"#{name}"%" and email like "%"#{email}"%"
+    </select>
+
+    <select id="QueryUserByPhoneAndEmail" parameterType="string" resultType="user">
+        select * from user where  phone_number like "%"#{phone}"%" and email like "%"#{email}"%"
+    </select>
+
+    <select id="QueryUserByNameAndPhoneInt" parameterType="string" resultType="int">
+        select COUNT(*) from user where name like "%"#{name}"%" and phone_number like "%"#{phone}"%"
+    </select>
+
+    <select id="QueryUserByNameAndEmailInt" parameterType="string" resultType="int">
+        select COUNT(*) from user where name like "%"#{name}"%" and email like "%"#{email}"%"
+    </select>
+
+    <select id="QueryUserByPhoneAndEmailInt" parameterType="string" resultType="int">
+        select COUNT(*) from user where  phone_number like "%"#{phone}"%" and email like "%"#{email}"%"
+    </select>
+
+    <select id="QueryUserByNameAndPhoneAndEmail" parameterType="string" resultType="user">
+        select * from user where name like "%"#{name}"%" and phone_number like "%"#{phone}"%" and email like "%"#{email}"%"
+    </select>
+
+    <select id="QueryUserByNameAndPhoneAndEmailInt" parameterType="string" resultType="int">
+        select COUNT(*) from user where name like "%"#{name}"%" and phone_number like "%"#{phone}"%" and email like "%"#{email}"%"
+    </select>
+</mapper>

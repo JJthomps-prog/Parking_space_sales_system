@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>后台登录-X-admin1.1</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/font.css">
+	<link rel="stylesheet" href="./css/xadmin.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+    <link rel="shortcut icon" href="images/logo.php">
+</head>
+<body>
+    <!-- 中部开始 -->
+    <div class="wrapper">
+        <!-- 右侧主体开始 -->
+        <div class="page-content">
+          <div class="content">
+            <!-- 右侧内容框架，更改从这里开始 -->
+            <form class="layui-form"  method="post" target="nm_iframe">
+
+                <div class="layui-form-item">
+                    <label  class="layui-form-label">
+                        <span class="x-red">*</span>登录名
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="name" name="name" required="required" lay-verify="nikename"
+                        autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label  class="layui-form-label">
+                        <span class="x-red">*</span>密码
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="password" id="password" name="password" required="required" lay-verify="pass"
+                        autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">
+                    </div>
+                </div>
+
+                <div>
+                    <label  class="layui-form-label">
+                        <span class="x-red">*</span>角色
+                    </label>
+                    <div class="layui-input-inline" >
+                        <select name="role" id="role" lay-ignore>
+                            <option value="">请选择</option>
+                            <option value=0 style="color: red">普通管理员</option>
+                            <option value=1 style="color: yellow">超级管理员</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">
+                    </label>
+                    <button  class="layui-btn" lay-filter="add" lay-submit="" onclick="member_add()">
+                        增加
+                    </button>
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
+    <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+    <script>
+        function member_add(){
+            if($("#name").val()==''||$("#password").val()==''||$("#role").val()==''){
+                layer.msg("请填写完整！", {icon: 2, time: 1000});
+            }else {
+                    $.ajax({
+                        url: "/admin/AddAdmin",
+                        type: "POST",
+                        data: {
+                            "name": $("#name").val(),
+                            "password": $("#password").val(), "role": $("#role").val()
+                        },
+                        success: function (data) {
+                            if(data==''){
+                                layer.msg('添加成功！', {icon: 2, time: 3000});
+                                myrefresh();
+                            }else{
+                                layer.msg(data, {icon: 2, time: 1000});
+                            }
+                        }
+                    })
+
+                }
+        }
+
+        function verifyUserName(){
+            $.ajax({
+                url: "/admin/VerifyUserName",
+                type: "GET",
+                data: {
+                    "name": $("#name").val()
+                },
+                success: function (data) {
+                    if(data=='') {
+                        layer.msg('用户名已存在!', {icon: 2, time: 1000});
+                    }
+                }
+            })
+
+        }
+
+        function verifyUserPhone(){
+            $.ajax({
+                url: "/admin/VerifyUserPhone",
+                type: "GET",
+                data: {
+                    "phone_number": $("#phone").val()
+                },
+                success: function (data) {
+                    if(data=='') {
+                        layer.msg('手机号已存在!', {icon: 2, time: 1000});
+                    }
+                }
+            })
+
+        }
+
+        function myrefresh(){
+            window.location.href="/getAdmin";
+            window.parent.location.href="/getAdmin" ;
+        }
+
+        function sleep(delay) {
+            var start = (new Date()).getTime();
+            while ((new Date()).getTime() - start < delay) {
+                continue;
+            }
+        }
+	</script>
+</body>
+</html>

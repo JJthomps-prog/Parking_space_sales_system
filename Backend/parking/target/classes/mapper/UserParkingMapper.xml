@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ykw.parking.mapper.UserParkingMapper">
+    <select id="QueryAllUserParking"   resultType="userParking">
+        select * from user_parking
+    </select>
+
+    <select id="QueryAllUserParkingIndex"   resultType="int">
+        select count(*) from user_parking
+    </select>
+
+    <select id="QueryParkingByCity"   resultType="string">
+        select address from parking_one
+    </select>
+
+    <select id="QueryBeUserParking"   resultType="int" parameterType="string">
+        select count(*) from user_parking where uid=#{uid} and number=#{number} and city=#{city} and address=#{address}
+    </select>
+
+    <update id="addUserParking" parameterType="userParking">
+        insert into `users`.`user_parking` (`uid`, `pid`, `city`, `address`, `number`, `name`, `id_number`, `phone_number`)
+        values
+            (#{uid}, #{pid}, #{city}, #{address}, #{number}, #{name}, #{id_number}, #{phone_number});
+    </update>
+
+    <delete id="delUserParking" >
+        delete from user_parking where uid=#{uid} and pid=#{pid} and number=#{number}
+    </delete>
+</mapper>

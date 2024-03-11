@@ -1,0 +1,5 @@
+<view class="pyq_index">
+<SearchInput></SearchInput>
+
+</view>
+<image src="../../icons/gg.png" class="imgstyle"></image>

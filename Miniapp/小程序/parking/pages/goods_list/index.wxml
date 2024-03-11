@@ -1,0 +1,94 @@
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="autoplay">
+        <swiper-item>
+            <image src="{{item}}" class="slide-image" />
+        </swiper-item>
+    </block>
+</swiper>
+<van-card
+title="杭州市（{{openText}}）"
+title-class="card_title"
+price="{{parking_lot.price}}"
+price-class="card_price"
+>
+<view slot="bottom">
+    <van-tag  color="#FF4500" text-color:="#FFFFFF" plain >配比不足</van-tag>
+    <van-tag  color="#FF4500" text-color:="#FFFFFF" plain >70年产权</van-tag>
+    <van-cell title="{{parking_lot.city}}{{parking_lot.address}}"  
+title-class="cell_title"
+icon="location-o"
+bindtap="showMap"
+ />
+  </view>
+</van-card>
+<van-collapse value="{{ activeNames }}" bind:change="onChange">
+  <van-collapse-item title="项目信息" name="0">
+    <view>类型：产权</view>
+    <view>面积：13m²～16m²</view>
+    <view>开盘时间：20210707</view>
+ <view>车位配比：1:1.13</view>
+    <view>开发商：杭州地产开发有限公司</view>
+    <view>销售公司：栓马桩</view>
+    <view>物业公司：XX物业</view>
+    <view>物业管理费：120元/月</view>
+    <view>产权年限：70年</view>
+    <view>车位编号：{{number}}</view>
+    <view>车位说明：{{explain}}</view>
+  </van-collapse-item>
+</van-collapse>
+
+<van-divider
+  contentPosition="left"
+  customStyle="color: #1989fa; border-color: #1989fa; font-size: 18px;"
+
+>
+  咨询车位
+</van-divider>
+<van-cell title="周天奇" border ="{{true}}"
+icon="contact" use-label-slot >
+ <view slot="label">
+   <van-rate
+  value="{{4}}"
+  readonly
+  size="{{ 15 }}"
+  color="#ffd21e"
+  void-icon="star"
+  void-color="#eee"
+  bind:change="onChange"
+/>
+  </view>
+
+  <van-button class="sell_button1"
+   round type="info"
+    color= "#FFFFFF"
+    bindtap="tels"
+    >
+    <van-icon name="/icons/tel.png"size="60rpx"/>
+    </van-button>
+   <van-button class="sell_button2"
+   round type="info"
+    color= "#FFFFFF"
+    bindtap="details_msg"
+    >
+    <van-icon name="/icons/msg1.png" size="60rpx"/> 
+   </van-button>
+   </van-cell>
+
+
+   <van-goods-action>
+  <van-goods-action-button
+    text="分享给好友"
+    type="warning"
+    bind:click="onClick"
+    color="#6cb3f7"
+  />
+  <van-share-sheet
+  show="{{ showShare }}"
+  title="立即分享给好友"
+  options="{{ options }}"
+  bind:select="onSelect"
+  bind:close="onClose"
+/>
+  <van-goods-action-button color="#2393fc" text="{{text}}" is-link bind:click="onVerify" />
+
+</van-goods-action>

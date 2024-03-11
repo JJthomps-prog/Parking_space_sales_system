@@ -1,0 +1,32 @@
+<view class="pyg_index">
+    <view class="index_swiper">
+        <swiper autoplay indicator-dots circular>
+            <swiper-item>
+                    <image src="../../images/zhuye_1.jpeg" mode="widthFix"></image>
+            </swiper-item>
+            <swiper-item>
+                    <image src="../../images/zhuye_2.jpeg" mode="widthFix"></image>
+            </swiper-item>
+            <swiper-item>
+                    <image src="../../images/zhuye_3.jpeg" mode="widthFix"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+<view>
+    <view>——————————————————————————————————</view>
+<view class='home-content'>
+    <text class='h2'>我们的优势</text>
+  </view>
+  <text class="h3">提供尊贵的服务</text>
+  <image style="width: 100%;" mode="widthFix" src="../../images/zhuye_4.jpeg"></image>
+  <text decode="true"  class='about-us'>&nbsp;&nbsp;&nbsp;&nbsp;我们的公司性质是企业服务，顾客是我们的上帝，服务是上帝的需求。这个领域里，我们是您可以信赖的买家。用态度换来您的微笑，用诚意换来您的信任，用实力换来您的赞美</text>
+  <view>——————————————————————————————————</view>
+  <text class="h3">实时监控</text>
+  <image style="width: 100%;" mode="widthFix" src="../../images/zhuye_5.jpeg"></image>
+  <text decode="true" class='about-us'>&nbsp;&nbsp;&nbsp;&nbsp;网络监控专家，安防成就天下。我们公司能保证你爱车的安全，监控八方，成就安防。明察秋毫，蛛丝马迹难逃。监控一路通，平安在身边。我很用心，你很放心</text>
+  <view>——————————————————————————————————</view>
+  <text class="h3">位置优越</text>
+  <image style="width: 100%;" mode="widthFix" src="../../images/zhuye_6.jpeg"></image>
+  <text  decode="true" class='about-us'>&nbsp;&nbsp;&nbsp;&nbsp;停车场地域宽广，环境优美，出入方便，就像两岸青山相对出，孤帆一片日边来。交通便利，出行便利，进出便利，停车换乘地铁的距离大大缩短，沿线居民出行更为便捷</text>
+</view>
+</view>

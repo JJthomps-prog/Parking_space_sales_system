@@ -1,0 +1,14 @@
+<van-notice-bar
+  color="#1989fa"
+  background="#ecf9ff"
+  left-icon="info-o"
+  text="身份信息已加密，请勿将此页面截图泄露给他人"
+/>
+
+
+
+<van-cell-group inset>
+  <van-cell title="姓名" value="{{name}}" />
+  <van-cell title="电子邮箱"  value="{{phone}}" />
+  <van-cell title="身份证号" value="{{id}}" />
+</van-cell-group>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ykw.parking.mapper.ParkingManageMapper">
+    <select id="queryParking"   resultType="parking">
+        select * from parking_one
+    </select>
+
+    <select id="queryParkingIndex"   resultType="int">
+        select count(*) from parking_one
+    </select>
+    <delete id="deleteParking" parameterType="int">
+        delete from parking_one where id=#{value}
+    </delete>
+
+    <select id="queryParkingByAddress"   resultType="parking" parameterType="string">
+        select * from parking_one where address=#{address}
+    </select>
+
+    <select id="queryParkingById"   resultType="parking" parameterType="int">
+        select * from parking_one where id=#{id}
+    </select>
+
+    <insert id="AddParking" parameterType="parking">
+        insert into parking_one(city,address,owner_phone,owner_name,number) value(#{city},#{address},#{owner_phone},#{owner_name},#{number})
+    </insert>
+
+    <update id="UpdateParking" parameterType="parking" >
+        update parking_one set owner_phone=#{owner_phone},owner_name=#{owner_name},number=#{number} where id=#{id}
+    </update>
+
+    <select id="getParkingIdByAddress"   resultType="int" parameterType="string">
+        select id from parking_one where address=#{address}
+    </select>
+</mapper>

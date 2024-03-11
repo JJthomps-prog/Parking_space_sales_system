@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ts.parking.dao.ParkingDao">
+    <select id="queryByNameLike"   resultType="com.ts.parking.pojo.Parking" parameterType="string">
+        select * from parking_one where city like "%"#{like}"%" or address like "%"#{like}"%"
+    </select>
+</mapper>

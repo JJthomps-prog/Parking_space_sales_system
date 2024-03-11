@@ -1,0 +1,36 @@
+<!--pages/search1/index.wxml-->
+<van-search
+  value="{{ value }}"
+  placeholder="请输入搜索关键词"
+  show-action  
+  shape="round"
+  background="#eb5a5a"
+  bind:search="onSearch" 
+  bind:cancle="onCancle"
+/> 
+<view class="card"  wx:for="{{parking}}" wx:key="id">
+<navigator url="../../pages/goods_list/index?id={{item.id}}&pid={{item.pid}}&address={{item.address}}&price={{item.price}}&open={{item.open}}">
+  
+  <van-card
+  
+  tag="浙江杭州"
+  price="{{item.price}}"
+  desc="面积：12m²"
+  title="{{item.address}}"
+  thumb="../../../../images/category_1.jpeg"
+  id="{{item.id}}"
+  
+>
+<view slot="tags">
+    <van-tag  color="#FF4500" text-color:="#FFFFFF" plain >配比不足</van-tag>
+    <van-tag  color="#FF4500" text-color:="#FFFFFF" plain >70年产权</van-tag>
+  </view>
+  <view slot="footer" >
+    <van-button size="normal" type="info" bind:click="">查看详情</van-button>
+  </view>
+</van-card>
+</navigator>
+</view>
+
+<van-divider dashed contentPosition="center">已经到底了</van-divider>
+

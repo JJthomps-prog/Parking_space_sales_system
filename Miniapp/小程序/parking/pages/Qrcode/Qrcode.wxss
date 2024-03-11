@@ -1,0 +1,78 @@
+.submit{
+    display: flex;
+    justify-content: center;         
+    align-items:center;   
+    padding-bottom: 100rpx;  
+  }
+  .Qrcode{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 25%;
+  }
+page{
+    background-image: url("https://wx4.sinaimg.cn/mw2000/006qbn5yly1guhij7vopqj60xc1r0jv902.jpg");
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    -moz-background-size:100% 100%;
+}
+.card2 {
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    background-color: #ffffff;
+    
+    margin: 30px;
+    position: relative;
+}
+
+.card1 {
+    border: 2px solid #4d73da;
+    border-radius: 20px;
+    background-color: #4d73da;
+    
+    margin: 30px;
+    position: relative;
+}
+
+.image {
+    width: 100%;
+    height: 150px;
+    background-color: #FFFFFF;
+}
+
+.time {
+    float: right;
+    margin-top: 170px;
+    color: #ffffff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    font-size: 12px;
+}
+.title1{
+    margin-left: 20px;
+    color: #ffffff;
+    font-size:larger;
+    font-weight:bolder;
+}
+.title2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:larger;
+    font-weight:bolder;
+}
+.title3{
+    margin-left: 20px;
+    color: #ffffff;
+    font-size:normal;
+    font-weight:lighter;
+}
+.title4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:smaller;
+    font-weight:lighter;
+}

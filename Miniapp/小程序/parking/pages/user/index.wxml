@@ -1,0 +1,104 @@
+<view><text>\n</text></view>
+<view class="container">
+  <view class="userinfo">
+    <block>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="https://img1.baidu.com/it/u=1489807627,808259306&fm=26&fmt=auto" mode="cover"></image>
+      <text class="userinfo-nickname">{{name}}</text>
+    </block>
+  </view>
+</view>
+<view class="card1" >
+        <view bindtap="onItemClick">
+            <view><text>\n</text></view>
+            <view class="title1"><van-icon name="balance-list-o" color="#0094ff" size="24px"/><text decode="{{true}}">&nbsp; 车位订单</text></view>
+            <view><text>\n</text></view>
+            <van-row>
+            <van-col span="3" offset="2">
+            <van-icon name="bill-o" color="#619ac3" size="45px" bindtap="onZF"/>
+            </van-col>
+            <van-col span="3" offset="2">
+            <van-icon name="completed" color="#619ac3" size="45px" bindtap="onWC"/>
+            </van-col>
+          </van-row>
+          <van-row>
+            <van-col span="3" offset="2">
+              <view class="title3">待支付</view>
+            </van-col>
+            <van-col span="3" offset="2">
+              <view class="title3">已完成</view>
+            </van-col>
+          </van-row>
+            
+            <view><text>\n</text></view>
+        </view>
+    </view>
+
+    <view class="cell">
+
+<van-cell-group inset>
+
+<van-cell
+is-link
+icon="user-o"
+title=" 认证状态"
+link-type="navigateTo"
+url="/pages/pay/index"
+/>
+
+<van-cell
+  is-link
+  icon="star-o"
+  title=" 我的认筹"
+  link-type="navigateTo"
+  url="/pages/collection/index"
+/>
+<van-cell
+is-link
+icon="vip-card-o"
+title=" 我的二维码"
+link-type="navigateTo"
+url="/pages/Qrcode/Qrcode"
+/>
+
+<van-cell
+is-link
+icon="balance-pay"
+title=" 银行卡绑定"
+link-type="navigateTo"
+url="/pages/feedback/index"
+/>
+
+<van-cell
+is-link
+icon="phone-o"
+title=" 登记报名"
+link-type="navigateTo"
+url="/pages/register/index"
+/>
+
+<van-cell
+is-link
+icon="smile"
+title=" 参与摇号"
+link-type="navigateTo"
+url="/pages/yaohao/yaohao"
+/>
+
+<van-cell
+is-link
+icon="eye"
+title=" 活动公告"
+link-type="navigateTo"
+url="/pages/huodong/index"
+/>
+
+<van-cell
+is-link
+icon="comment-o"
+title=" 我的通知"
+link-type="navigateTo"
+url="/pages/tongzhi/index"
+/>
+
+</van-cell-group>
+</view>

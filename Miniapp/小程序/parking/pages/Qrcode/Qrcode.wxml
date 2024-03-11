@@ -1,0 +1,37 @@
+<!--pages/Qrcode.wxml-->
+
+<view class="card1" >
+        <view bindtap="onItemClick">
+            <view><text>\n</text></view>
+            <view class="title1"><van-icon name="enlarge" size="35px"/>二维码</view>
+            <view><text>\n</text></view>
+            <view class="title3">我的二维码</view>
+            <view class="title3"></view>
+            <view><text>\n</text></view>
+        </view>
+    </view>
+
+
+<view class="card2" >
+        <view bindtap="onItemClick">
+            <view><text>\n</text></view>
+            <view><text>\n</text></view>
+           <view class ="Qrcode"> <canvas canvas-id="qrcode" /> </view>
+            
+            <view class="title2">已完成</view>
+            <view><text>\n</text></view>
+
+            <view class="title4"><text>凭此二维码，可在已认购小区内通行。</text> </view>
+            <view class="title4"><van-icon name="enlarge" size="15px"/><text>请主动出示配合检查。</text> </view>
+            <view><text>\n</text></view>
+            <view><text>\n</text></view>
+        </view>
+    </view>
+
+
+<!-- <van-notice-bar 
+scrollable
+speed = "30"
+text="请妥善保管此二维码，该二维码将作为线下入场的凭证" /> -->
+
+<van-button class="submit" round type="info" size="large" bind:click="buyRequest">点击返回</van-button>  

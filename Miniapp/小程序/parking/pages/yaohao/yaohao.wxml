@@ -1,0 +1,18 @@
+<!--pages/yaohao/yaohao.wxml-->
+<view class="yaohaoxiaoqu">
+  <view class="kuang">
+    <view class="kuang_1">
+      <image src="../../images/yaohao_1.jpg" style="width: 170px; height: 120px; border-radius: 10px; margin: 2px; border: 1px solid wheat;"></image>
+      <text style="font-size: 12px; color: rgb(0, 0, 0); font-family: Georgia, 'Times New Roman', Times, serif;">杭州心悦城</text>
+    </view>
+    <view class="kuang_2">
+      <text style="font-size: 15px; color: rgb(255, 255, 255); font-family: Georgia, 'Times New Roman', Times, serif; margin-top: 10px;">车位数量</text>
+      <text style="font-size: 13px; color: rgb(255, 196, 0); font-family: Georgia, 'Times New Roman', Times, serif; margin: 30px;">{{shuliang}}</text>
+      <button id="bu1" bindtap="yaohao" style="width: 90%;height: 30px; color: white;border-radius: 5px; background: darkgray; font-family: Georgia, 'Times New Roman', Times, serif; font-size: 12px; display:{{block}};">摇号</button>
+    </view>
+  </view>
+  <view class="kefu">
+    <text style="font-size: 12px; color: white; font-family: 'Times New Roman', Times, serif;">具体业务请凭借摇号码咨询客服：123123123123</text>
+    <text style="font-size: 15px; color: white; font-family: 'Times New Roman', Times, serif;">您的号码是：<text style="font-size: 15px; color: white; font-family: 'Times New Roman', Times, serif;">{{ma}}</text></text>
+  </view>
+</view>

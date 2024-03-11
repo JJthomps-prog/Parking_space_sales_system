@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>后台登录-X-admin1.1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/xadmin.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+</head>
+<body>
+    <!-- 中部开始 -->
+    <div class="wrapper">
+        <!-- 右侧主体开始 -->
+        <div class="page-content">
+          <div class="content">
+            <!-- 右侧内容框架，更改从这里开始 -->
+            <form class="layui-form" method="post" target="nm_iframe">
+                <input type="hidden" id="pid" th:value="${#session.getAttribute('UpdateParkingLotBean').pid}">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">
+                        编号
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="number" name="number" required lay-verify="required"
+                        autocomplete="off"  class="layui-input" th:value="${#session.getAttribute('UpdateParkingLotBean').number}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label  class="layui-form-label">
+                        <span class="x-red">*</span>价格
+                    </label>
+                    <div class="layui-input-inline">
+                        <input onblur="verifyUserPhone()" type="text" id="price" name="price" required="required" lay-verify="nikename"
+                               autocomplete="off" class="layui-input" th:value="${#session.getAttribute('UpdateParkingLotBean').price}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label  class="layui-form-label">
+                        <span class="x-red">*</span>说明
+                    </label>
+                    <div class="layui-input-inline">
+                        <input onblur="verifyUserPhone()" type="text" id="explain" name="explain" required="required" lay-verify="nikename"
+                               autocomplete="off" class="layui-input" th:value="${#session.getAttribute('UpdateParkingLotBean').explain}">
+                    </div>
+                </div>
+
+                <div>
+                    <label  class="layui-form-label">
+                        <span class="x-red">*</span>是否以认筹
+                    </label>
+                    <div class="layui-input-inline">
+                        <select name="identify" id="identify" th:switch="${#session.getAttribute('UpdateParkingLotBean').identify}">
+                            <option value="" th:case=1>是</option>
+                            <option value="" th:case=0 >否</option>
+                            <option value=1 >是</option>
+                            <option value=0 >否</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+
+                <div>
+                    <label  class="layui-form-label">
+                        <span class="x-red">*</span>是否以开盘
+                    </label>
+                    <div class="layui-input-inline">
+
+                        <select name="open" id="open" th:switch="${#session.getAttribute('UpdateParkingLotBean').open}">
+                            <option value=""  th:case=1>是</option>
+                            <option value="" th:case=0>否</option>
+                            <option value=1 >是</option>
+                            <option value=0 >否</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+
+<!--                <div>
+                    <label  class="layui-form-label">
+                        <span class="x-red">*</span>是否以售出
+                    </label>
+                    <div class="layui-input-inline">
+
+                        <select name="sale" id="sale" th:switch="${#session.getAttribute('UpdateParkingLotBean').sale}">
+                            <option value="" th:case=1>是</option>
+                            <option value="" th:case=0>否</option>
+                            <option value=1 >是</option>
+                            <option value=0 >否</option>
+                        </select>
+
+                    </div>
+                </div>-->
+                <input type="hidden" name="sale" id="sale" th:value="${#session.getAttribute('UpdateParkingLotBean').sale}">
+                <div class="layui-form-item">
+                    <label  class="layui-form-label">
+                    </label>
+                    <button class="layui-btn" key="set-mine" lay-filter="save" lay-submit="" onclick="member_edit()">
+                        保存
+                    </button>
+                    <button class="layui-btn" key="set-mine" lay-filter="save" lay-submit="" onclick="x_admin_close()">
+                        取消
+                    </button>
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
+    <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+
+    <script>
+        function member_edit(){
+            if($("#number").val()==''||$("#name").val()==''||$("#phone").val()==''){
+            }else {
+                $.ajax({
+                    url: "/admin/updateParkingLot",
+                    type: "POST",
+                    data: {"number": $("#number").val(),
+                        "price": $("#price").val(), "explain": $("#explain").val(),
+                        "identify": $("#identify").val(), "open": $("#open").val(),
+                        "sale" :$("#sale").val()
+                    },
+                    success: function (data) {
+                        if(data==''){
+                            layer.msg('编辑成功！', {icon: 1, time: 3000});
+                            myrefresh();
+                        }else{
+                            layer.msg(data, {icon: 2, time: 1000});
+                        }
+                    }
+                })
+            }
+        }
+
+        function myrefresh(){
+            window.location.href="/parkinglot?id="+$("#pid").val();
+            window.parent.location.href="/parkinglot?id="+$("#pid").val();
+        }
+    </script>
+</body>
+</html>

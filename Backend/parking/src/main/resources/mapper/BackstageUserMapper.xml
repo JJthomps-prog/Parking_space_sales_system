@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ykw.parking.mapper.BackstageUserMapper">
+
+
+    <select id="QueryAllUser"  resultType="user">
+        select * from user
+    </select>
+
+    <delete id="DeleteUser" parameterType="string">
+        delete from user where id=#{value}
+    </delete>
+
+    <insert id="AddUser" parameterType="user">
+        insert into user value (#{id},#{name},#{phone_number},#{password},#{email},#{state})
+    </insert>
+
+    <select id="QueryAllUserIndex" resultType="int">
+        select COUNT(*) from user
+    </select>
+
+    <select id="QueryAllUserByName" parameterType="string" resultType="int">
+        select COUNT(*) from user where name=#{name}
+    </select>
+
+    <select id="QueryAllUserByPhone" parameterType="string" resultType="int">
+        select COUNT(*) from user where phone_number=#{phone_number}
+    </select>
+
+    <select id="QueryOne" resultType="user" parameterType="string">
+        select * from user where id=#{id}
+    </select>
+
+    <update id="UpdateUser" parameterType="user" >
+        update user set name=#{name},phone_number=#{phone_number},password=#{password},email=#{email} where id=#{id}
+    </update>
+
+    <select id="QueryLimitUser" parameterType="int" resultType="user">
+        select * from user limit #{offset},#{rows};
+    </select>
+
+    <update id="UpdateUserByState"   >
+        update user set state=#{state} where id=#{id}
+    </update>
+</mapper>

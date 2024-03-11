@@ -1,0 +1,28 @@
+<view class="cart_content">
+  <view class="cart_title">我的认筹</view>
+  <view class="cart_main">
+    <!--当cart数组不为0显示 -->
+    <block wx:if="{{cart.length!==0}}">
+      <view class="cart_item" wx:for="{{cart}}" wx:key="goods_id">
+        <!--商品图片-->
+        <navigator class="cart_img_wrap">
+          <image src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.wifizs.cn%2Fmaterial%2Fnews%2Fimg%2F2017%2F11%2F3c42fd673949cba805c321e647c100df.jpg&refer=http%3A%2F%2Fimg.wifizs.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1637735199&t=f77f723d88851cd86bce6f5f79f0c1f7" mode="widthFix" />
+        </navigator>
+        <!--商品信息-->
+        <view class="cart_info_wrap">
+          <view class="goods_name">
+           杭州{{item.address}}{{item.number}} 
+          </view>
+          <view class="goods_price_wrap">
+            <view class="goods_price">￥{{item.price}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3559485588,3499568517&fm=15&gp=0.jpg" mode="widthFix" />
+    </block>
+  </view>
+</view>
+<view class="footer_tool">
+</view>

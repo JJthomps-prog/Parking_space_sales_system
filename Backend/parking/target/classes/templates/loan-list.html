@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>后台登录-X-admin1.1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet"  href="./css/font.css">
+    <link rel="stylesheet"  href="./css/xadmin.css">
+    <link rel="shortcut icon"  href="images/logo.php">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+    <script src="./lib/layui/layui.js"  charset="utf-8"></script>
+    <script type="text/javascript"  src="./js/xadmin.js"></script>
+</head>
+<body>
+    <!-- 顶部开始 -->
+    <div class="container">
+        <div class="logo"><a href="./index.html">栓马桩后台管理系统</a></div>
+        <div class="open-nav"><i class="iconfont">&#xe699;</i></div>
+        <ul class="layui-nav right" lay-filter="">
+          <li class="layui-nav-item">
+            <a href="javascript:;" th:text="${#session.getAttribute('admin').admin_name}">admin</a>
+            <dl class="layui-nav-child"> <!-- 二级菜单 -->
+              <dd><a href="">个人信息</a></dd>
+              <dd><a href="">切换帐号</a></dd>
+              <dd><a href="./login.html">退出</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item"><a href="/">前台首页</a></li>
+        </ul>
+    </div>
+    <!-- 顶部结束 -->
+    <!-- 中部开始 -->
+    <div class="wrapper">
+        <!-- 左侧菜单开始 -->
+        <div class="left-nav">
+          <div id="side-nav">
+            <ul id="nav">
+                <li class="list" current>
+                    <a href="./index.html">
+                        <i class="iconfont">&#xe761;</i>
+                        欢迎页面
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe70b;</i>
+                        用户管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/getUser">
+                                <i class="iconfont">&#xe6a7;</i>
+                                用户列表
+                            </a>
+                        </li>
+                        <li >
+                            <a href="/member-realname">
+                                <i class="iconfont">&#xe6a7;</i>
+                                实名管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/owner-list">
+                                <i class="iconfont">&#xe6a7;</i>
+                                业主管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list" >
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6ba;</i>
+                        车位管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/parkinglist">
+                                <i class="iconfont">&#xe6a7;</i>
+                                车位信息列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/userParking">
+                                <i class="iconfont">&#xe6a7;</i>
+                                用户车位列表
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list" >
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6a2;</i>
+                        业务管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu opened">
+                        <li >
+                            <a href="/orderList">
+                                <i class="iconfont">&#xe6a7;</i>
+                                订单列表
+                            </a>
+                        </li>
+                        <li class="current">
+                            <a href="/loanList">
+                                <i class="iconfont">&#xe6a7;</i>
+                                贷款列表
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list" >
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6c7;</i>
+                        管理员管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu" style="display:none">
+                        <li>
+                            <a href="/getAdmin">
+                                <i class="iconfont">&#xe6a7;</i>
+                                管理员列表
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list">
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6a3;</i>
+                        系统统计
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu" style="display:none">
+                        <li>
+                            <a href="/count">
+                                <i class="iconfont">&#xe6a7;</i>
+                                车位统计
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/usercount">
+                                <i class="iconfont">&#xe6a7;</i>
+                                用户统计
+                            </a>
+                        </li>
+                        <li >
+                            <a href="/datalist">
+                                <i class="iconfont">&#xe6a7;</i>
+                                业绩统计
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list" >
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6a3;</i>
+                        系统设置
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu" style="display:none">
+                        <li>
+                            <a href="./banner-list.html">
+                                <i class="iconfont">&#xe6a7;</i>
+                                轮播列表
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 左侧菜单结束 -->
+        <!-- 右侧主体开始 -->
+        <div class="page-content">
+          <div class="content">
+            <!-- 右侧内容框架，更改从这里开始 -->
+              <xblock><button class="layui-btn" onclick="member_add('添加用户','order-add','600','500')"><i class="layui-icon">&#xe608;</i>添加</button><span  class="x-right" style="line-height:40px">共有数据：<span id="index" class="x-right" style="line-height:40px" th:text="${#session.getAttribute('LoanListindex')}"></span></span> </xblock>
+            <table class="layui-table">
+                    <tr>
+                        <th>
+                            用户ID
+                        </th>
+                        <th>
+                            姓名
+                        </th>
+                        <th>
+                            现住址
+                        </th>
+                        <th>
+                            联系方式
+                        </th>
+                        <th>
+                            贷款公司
+                        </th>
+                        <th>
+                            贷款金额
+                        </th>
+                        <th>
+                            利息
+                        </th>
+                        <th width="80px">
+                            日期
+                        </th>
+                    </tr>
+                <tbody>
+                    <tr th:each="order :${#session.getAttribute('LoanList')}">
+                        <td>
+                            [[${order.uid}]]
+                        </td>
+                        <td>
+                            <u style="cursor:pointer">
+                                [[${order.name}]]
+                            </u>
+                        </td>
+                        <td >
+                            [[${order.address}]]
+                        </td>
+                        <td >
+                            [[${order.contact}]]
+                        </td>
+                        <td >
+                            [[${order.company}]]
+                        </td>
+                        <td >
+                            [[${order.money}]]
+                        </td>
+                        <td >
+                            [[${order.interest}]]
+                        </td>
+                        <td >
+                            [[${order.date}]]
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <!-- 右侧内容框架，更改从这里结束 -->
+          </div>
+            <div style="text-align: right" >
+            <nav aria-label="Page navigation example" >
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">上一页</a></li>
+                    <li class="page-item"><a class="page-link" href="#">下一页</a></li>
+                </ul>
+            </nav>
+            </div>
+        </div>
+        <!-- 右侧主体结束 -->
+    </div>
+
+    <!-- 底部结束 -->
+    <!-- 背景切换开始 -->
+    <div class="bg-changer">
+        <div class="swiper-container changer-list">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="item" src="./images/a.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/b.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/c.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/d.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/e.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/f.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/g.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/h.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/i.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/j.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item" src="./images/k.jpg" alt=""></div>
+                <div class="swiper-slide"><span class="reset">初始化</span></div>
+            </div>
+        </div>
+        <div class="bg-out"></div>
+        <div id="changer-set"><i class="iconfont">&#xe696;</i></div>   
+    </div>
+    <!-- 背景切换结束 -->
+    <!-- 页面动态效果 -->
+    <script>
+        layui.use(['laydate'], function(){
+            laydate = layui.laydate;//日期插件
+
+            var start = {
+                min: '2001-06-22 23:59:59'
+                ,max: '2099-06-22 23:59:59'
+                ,istoday: false
+                ,choose: function(datas){
+                    end.min = datas; //开始日选好后，重置结束日的最小日期
+                    end.start = datas //将结束日的初始值设定为开始日
+                }
+            };
+
+            var end = {
+                min: laydate.now()
+                ,max: '2099-06-16 23:59:59'
+                ,istoday: false
+                ,choose: function(datas){
+                    start.max = datas; //结束日选好后，重置开始日的最大日期
+                }
+            };
+
+            document.getElementById('LAY_demorange_s').onclick = function(){
+                start.elem = this;
+                laydate(start);
+            }
+            document.getElementById('LAY_demorange_e').onclick = function(){
+                end.elem = this
+                laydate(end);
+            }
+
+        });
+         /*用户-添加*/
+        function member_add(title,url,w,h){
+            x_admin_show(title,url,w,h);
+        }
+        /*用户-查看*/
+        function member_show(title,url,id,w,h){
+            x_admin_show(title,url,w,h);
+        }
+
+        /*用户-删除*/
+        function member_del(obj,id){
+            layer.confirm('确认要删除吗？',function(index) {
+                $.ajax({
+                        url: "/admin/delOrder",
+                        type: "POST",
+                        data: {"oid": $(obj).parents("tr").children(":first").children("#oid").val()},
+                            success: function (data) {
+                                if (data != '') {
+                                    $(obj).parents("tr").remove();
+                                    var x1 = document.getElementById("index");
+                                    x1.innerText=x1.innerText-1;
+                                    layer.msg('已删除!', {icon: 1, time: 1000});
+                                } else {
+                                    layer.msg('删除失败!', {icon: 2, time: 1000});
+                                }
+                            }
+                        })
+                    }
+                );
+        }
+        </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+.index_swiper swiper {
+  width: 750rpx;
+  height: 340rpx;
+}
+.index_swiper swiper image {
+  width: 100%;
+}
+
+.h2 {
+  font-size: 16px;
+  color: #0ba29a;
+  border-bottom: 1px solid #0ba29a;
+  padding-bottom: 2px;
+  font-weight: bold;
+}
+.h3 {
+  font-size: 12px;
+  color: #000808;
+  padding-bottom: 2px;
+  font-weight: bold;
+}
+.about-us {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 5px;
+}
+.home-content {
+  margin-top: 10px;
+  text-align: center;
+}

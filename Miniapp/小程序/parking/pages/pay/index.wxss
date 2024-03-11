@@ -1,0 +1,26 @@
+/* pages/idtState/idtState.wxss */
+.circle{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    height: 150rpx;
+    width: 50rpx;
+    margin-top: 110rpx;
+    margin-bottom: 80rpx;
+
+}
+.card1 {
+  border: 10px solid #ffffff;
+  border-radius: 20px;
+  background-color: #ffffff;
+  margin: 25px;
+  position: relative;
+}
+.imagesize{
+    display: flex;
+    justify-content: center;         
+    align-items:center;                
+  }
+page{
+    background: #f2f2f2;
+  }

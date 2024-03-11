@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>后台登录-X-admin1.1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/xadmin.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+
+</head>
+<body>
+    <!-- 中部开始 -->
+    <div class="wrapper">
+        <!-- 右侧主体开始 -->
+        <div class="page-content">
+          <div class="content">
+            <!-- 右侧内容框架，更改从这里开始 -->
+            <form class="layui-form" method="post" target="nm_iframe">
+                <input type="hidden" id="id" th:value="${#session.getAttribute('UpdateAdmin').id}">
+                <input type="hidden" id="roleBean" th:value="${#session.getAttribute('UpdateAdmin').role}">
+                <div class="layui-form-item">
+                    <label for="name" class="layui-form-label">
+                        登录名
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="name" name="name" required lay-verify="required"
+                        autocomplete="off"  class="layui-input" th:value="${#session.getAttribute('UpdateAdmin').admin_name}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label  class="layui-form-label">
+                        <span class="x-red">*</span>密码
+                    </label>
+                    <div class="layui-input-inline">
+                        <input  readonly type="text" id="password" name="phone_number" required="required" lay-verify="nikename"
+                               autocomplete="off" class="layui-input" th:value="${#session.getAttribute('UpdateAdmin').admin_password}">
+                    </div>
+                </div>
+
+                <div>
+                    <label  class="layui-form-label">
+                        <span class="x-red">*</span>角色
+                    </label>
+                    <div class="layui-input-inline">
+                        <select name="role" id="role" th:switch="${#session.getAttribute('UpdateAdmin').role}">
+                            <option value="" th:case=1>超级管理员</option>
+                            <option value="" th:case=0 >普通管理员</option>
+                            <option value=1 >超级管理员</option>
+                            <option value=0 >普通管理员</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label  class="layui-form-label">
+                    </label>
+                    <button class="layui-btn" key="set-mine" lay-filter="save" lay-submit="" onclick="member_edit()">
+                        保存
+                    </button>
+                    <button class="layui-btn" key="set-mine" lay-filter="save" lay-submit="" onclick="x_admin_close()">
+                        取消
+                    </button>
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
+    <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+
+    <script>
+        function member_edit(){
+            if($("#password").val()==''||$("#name").val()==''){
+                return;
+            }else {
+
+/*                if($("#role").val()==""){
+                    role=$("#roleBean")
+                }else{
+                    role=$("#role").val()
+                }*/
+                $.ajax({
+                    url: "/admin/updateAdmin",
+                    type: "POST",
+                    data: {"id": $("#id").val(),
+                        "admin_name": $("#name").val(), "admin_password": $("#password").val(),
+                        "role": $("#role").val()
+                    },
+                    success: function (data) {
+                        if(data==''){
+                            layer.msg('编辑成功！', {icon: 1, time: 3000});
+                            myrefresh();
+                        }else{
+                            layer.msg(data, {icon: 2, time: 1000});
+                        }
+                    }
+                })
+
+            }
+        }
+
+        function myrefresh(){
+            window.location.href="/getAdmin";
+            window.parent.location.href="/getAdmin";
+        }
+    </script>
+</body>
+</html>

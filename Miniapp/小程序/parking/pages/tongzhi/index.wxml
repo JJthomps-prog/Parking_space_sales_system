@@ -1,0 +1,28 @@
+<!--pages/tongzhi/index.wxml-->
+<view class="tongzhi">
+  活动通知
+</view>
+<view class="huodong">
+  <image src="../../images/huodong_1.jpg" style="width: 250px; height: 140px; border-radius: 10px; margin: 2px; border: 1px solid wheat;"></image>
+  <view class="wenzi"><text style="color: white; font-size: 15px; writing-mode:tb-rl; margin-top: 50%;">杭州滨江新城</text></view>
+</view>
+<view class="huodong">
+  <image src="../../images/huodong_1.jpg" style="width: 250px; height: 140px; border-radius: 10px; margin: 2px; border: 1px solid wheat;"></image>
+  <view class="wenzi"><text style="color: white; font-size: 15px; writing-mode:tb-rl; margin-top: 50%;">杭州滨江新城</text></view>
+</view>
+<view class="huodong">
+  <image src="../../images/huodong_1.jpg" style="width: 250px; height: 140px; border-radius: 10px; margin: 2px; border: 1px solid wheat;"></image>
+  <view class="wenzi"><text style="color: white; font-size: 15px; writing-mode:tb-rl; margin-top: 50%;">杭州滨江新城</text></view>
+</view>
+<view class="tongzhi">
+  交费通知
+</view>
+<view class="huodong" style="background: white; font-size: 40px;">
+  暂无新的通知
+</view>
+<view class="tongzhi">
+  签约通知
+</view>
+<view class="huodong" style="background: white; font-size: 40px;">
+  暂无新的通知
+</view>

@@ -1,0 +1,48 @@
+.card1 {
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    background-color: #ffffff;
+    margin: 20px;
+    position: relative;
+}
+.title1{
+    margin-left: 20px;
+    color: #292828;
+    font-size:normal;
+    font-weight:lighter;
+}
+.title3{
+    color: #2e2e2e;
+    margin-left: 3px;
+    margin-top: 5px;
+    font-size:smaller;
+    font-weight:lighter;
+}
+page{
+    background: #f2f2f2;
+}
+page{
+    background-image: url("https://wx1.sinaimg.cn/mw2000/006qbn5yly1gujolfjz9aj60p016njs802.jpg");
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    -moz-background-size:100% 100%;
+}
+.cell{
+    border-radius: 5rpx;
+    margin: 8px;
+    /* box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.15); */
+    
+}
+.userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(66, 66, 66);
+  }
+  .userinfo-avatar {
+    overflow: hidden;
+    width: 128rpx;
+    height: 128rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+  }

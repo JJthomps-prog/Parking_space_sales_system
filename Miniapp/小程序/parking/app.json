@@ -1,0 +1,113 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/index/index",
+    "pages/category/index",
+    "pages/goods_list/index",
+    "pages/cart/index",
+    "pages/order/index",
+    "pages/search/index",
+    "pages/search1/index",
+    "pages/user/index",
+    "pages/auth/index",
+    "pages/pay/index",
+    "pages/Qrcode/Qrcode",
+    "pages/register/index",
+    "pages/yaohao/yaohao",
+    "pages/huodong/index",
+    "pages/tongzhi/index",
+    "pages/collection/index",
+    "pages/feedback/index",
+    "pages/pingjia/index",
+    "pages/details_msg/details_msg"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#eb5a5a",
+    "navigationBarTitleText": "栓马桩车位销售平台",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icons/home.png",
+        "selectedIconPath": "icons/home (1).png"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "text": "车位",
+        "iconPath": "icons/楼房-大厦.png",
+        "selectedIconPath": "icons/楼房-大厦 (1).png"
+      },
+      {
+        "pagePath": "pages/search/index",
+        "text": "搜索",
+        "iconPath": "icons/search.png",
+        "selectedIconPath": "icons/search-actived.png"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "购物车",
+        "iconPath": "icons/消息.png",
+        "selectedIconPath": "icons/消息 (1).png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "icons/我的.png",
+        "selectedIconPath": "icons/我的 (1).png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-count-down": "@vant/weapp/count-down/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-progress": "@vant/weapp/progress/index",
+    "van-skeleton": "@vant/weapp/skeleton/index",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-goods-action": "@vant/weapp/goods-action/index",
+    "van-goods-action-icon": "@vant/weapp/goods-action-icon/index",
+    "van-goods-action-button": "@vant/weapp/goods-action-button/index",
+    "van-share-sheet": "@vant/weapp/share-sheet/index",
+    "van-config-provider": "@vant/weapp/config-provider/index",
+    "van-nav-bar": "@vant/weapp/nav-bar/index",
+    "van-steps": "@vant/weapp/steps/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-rate": "@vant/weapp/rate/index",
+    "van-area": "@vant/weapp/area/index",
+    "van-circle": "@vant/weapp/circle/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

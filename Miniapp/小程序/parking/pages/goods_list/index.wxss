@@ -1,0 +1,14 @@
+.slide-image{
+    height: 100%;
+   width: 100%;
+ }
+ .sell_button1,.sell_button2{
+    display: inline;
+    padding-right: 5rpx;
+   size:50rpx;
+}
+.sell_button1,.sell_button2{
+    display: inline;
+    padding-right: 5rpx;
+   size:50rpx;
+}

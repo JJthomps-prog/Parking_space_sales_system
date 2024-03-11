@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ykw.parking.mapper.AdminParkingLotMapper">
+    <select id="queryParkingLotByPid" resultType="parkingLot" parameterType="string">
+        select * from parking_lot where pid=#{pid} ORDER BY `number`
+    </select>
+
+    <select id="queryParkingLotById" resultType="parkingLot" parameterType="int">
+        select * from parking_lot where id=#{id}
+    </select>
+
+    <select id="queryParkingLotByNumAndPid" resultType="int" parameterType="string">
+        select count(*) from parking_lot where pid=#{pid} and number=#{number}
+    </select>
+    <delete id="delParkinglot" parameterType="int">
+        delete from parking_lot where id=#{id}
+    </delete>
+
+    <insert id="AddParkinglot" parameterType="parkingLot">
+
+        INSERT INTO `users`.`parking_lot` ( `pid`, `identify`, `open`, `number`, `price`, `explain`, `sale`)
+        VALUES
+            (#{pid}, #{identify}, #{open}, #{number}, #{price}, #{explain}, #{sale})
+    </insert>
+
+    <update id="UpdateParkingLot" parameterType="parkingLot">
+        update `users`.`parking_lot` set  `identify` = #{identify} , `open` = #{open} , `number` = #{number} , `price` = #{price} , `explain` = #{explain} , `sale` = #{sale}
+        where
+            `id` = #{id};
+    </update>
+
+    <select id="getPLpidByNumber" resultType="string" parameterType="string">
+        select number from parking_lot where pid=#{pid} and sale=0 order by `number`
+    </select>
+
+    <update id="updateSale" parameterType="string">
+        update `users`.`parking_lot` set   `sale` = 1
+        where
+            `pid` = #{pid} and `number`=#{number};
+    </update>
+
+    <update id="updateSaleAndZero" parameterType="string">
+        update `users`.`parking_lot` set   `sale` = 0
+        where
+            `pid` = #{pid} and `number`=#{number};
+    </update>
+</mapper>
